@@ -40,6 +40,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_book_info_can_be_modified(self):
         '''test whether book info can be updated'''
+
         result_post=self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(result_post.status_code, 201)
         new_book_detail = self.book_details['description'] = "A modern introduction to programming"
@@ -47,6 +48,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_api_can_add_book(self):
         '''test api can borrow book'''
+        
         result = self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(response.status_code, 201)
         self.assertIn('Marijn Haverbeke', str(result.data)
@@ -54,6 +56,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_api_can_remove_book(self):
         '''test api can delete a book'''
+
         result_post = self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(result_post.status_code, 201)
         result_delete = self.client.delete('api/books/4')
@@ -65,6 +68,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_api_can_get_all_books(self):
         '''test api can get all books'''
+
         result_post = self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(result_post.status_code, 201)
         result_get = self.client.get('/api/books/')
@@ -75,7 +79,16 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_get_book_by_id(self, parameter_list):
         '''test api can get a single book by its id '''
-        pass
+
+        result = self.client.post('/api/books/', data = self.book_details)
+        self.assertEqual(result.status_code, 201)
+        json_result= json.loads(result.data.decode('utf-8'))
+
+        result_get = self.client.get(
+                        '/api/books/{}'.format(json_result['id']
+                         ))
+        self.assertEqual(result_get.status_code, 200)
+        self.assertIn('Eloquent Javascript', result_get.data)
 
     def user_can_borrow_book_test(self, parameter_list):
         '''test a user can borrow  a book-POST request'''
