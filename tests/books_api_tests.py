@@ -1,7 +1,7 @@
 # api endpoint tests
 # path ../tests/book_api_tests.py
 
-# import os and python unitest modules
+# import os and python unittest modules
 
 import os
 import unittest
@@ -33,7 +33,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
         }
 
-    # executed after each test
+
     def tearDown(self):
         self.app_context.pop()
 
@@ -47,14 +47,14 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_api_can_add_book(self):
         '''test api can borrow book'''
-        result = self.client.post('/api/books/', data=self.book_details)
+        result = self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(response.status_code, 201)
         self.assertIn('Marijn Haverbeke', str(result.data)
 
 
     def test_api_can_remove_book(self):
         '''test api can delete a book'''
-        result_post = self.client.post('/api/books/', data=self.book_details)
+        result_post = self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(result_post.status_code, 201)
         result_delete = self.client.delete('api/books/4')
         self.assertEqual(result_delete.status_code, 200)
@@ -65,7 +65,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_api_can_get_all_books(self):
         '''test api can get all books'''
-        result_post = self.client.post('/api/books/', data=self.book_details)
+        result_post = self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(result_post.status_code, 201)
         result_get = self.client.get('/api/books/')
         self.assertEqual(result_get.status_code, 200)
