@@ -48,7 +48,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_api_can_add_book(self):
         '''test api can borrow book'''
-        
+
         result = self.client.post('/api/books/', data = self.book_details)
         self.assertEqual(response.status_code, 201)
         self.assertIn('Marijn Haverbeke', str(result.data)
@@ -90,6 +90,12 @@ class HellobooksCRUDTestCase(unittest.TestCase):
         self.assertEqual(result_get.status_code, 200)
         self.assertIn('Eloquent Javascript', result_get.data)
 
+
+
+''' def user_can_borrow_book_test(self, parameter_list):
+       '''test a user can borrow  a book-POST request'''
+        pass
+'''
     def user_can_borrow_book_test(self, parameter_list):
         '''test a user can borrow  a book-POST request'''
         pass
@@ -108,7 +114,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
     def test_reset_password(self, parameter_list):
         '''test password reset works correctly'''
-        pass
+        pass 
 
 
 if __name__ == "__main__":
