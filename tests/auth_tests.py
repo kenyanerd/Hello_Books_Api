@@ -72,7 +72,7 @@ class UserAuthTestCase(Unittest.TestCase):
     """test app if app can allow user to reset their password """
 
         self.test_user_login()
-        reset_result=self.client.post('/auth/password_reset', data={
+        reset_result=self.client.post('/auth/password_reset', data = {
             'email': 'user@testmail.com,
             'old_password': 'pass123*',
             'new_password': 'PAss123*'
