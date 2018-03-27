@@ -21,6 +21,8 @@ class UserAuthTestCase(Unittest.TestCase):
             'password': 'pass123*'
 
         }
+        def tearDown(self):
+            self.app_context.pop()
 
     def test_user_registration(self):
         '''test user registration works correctly'''
@@ -80,7 +82,6 @@ class UserAuthTestCase(Unittest.TestCase):
             'password': 'PAss123*'
         })
         self.assertEqual(login_result.status_code, 200)
-
 
 
 if __name__ == "__main__":
