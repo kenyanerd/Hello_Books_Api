@@ -13,7 +13,14 @@ class Book:
         self.copies_available = None
         self.available = True
 
+    #a method to sate a book
     def save(self):
         books.append(self)
+
+    #a method to remove a book
+    def remove(self):
+        books.remove(self)
+
+
 
 
