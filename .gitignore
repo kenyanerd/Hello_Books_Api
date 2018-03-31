@@ -1,0 +1,8 @@
+app/book
+tests/__pycache__
+app/__pycache__
+app/users/__pycache__
+instance/__pycache__
+app/auth/__pycache__
+app/books/__pycache__
+app/book/__pycache__
