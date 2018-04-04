@@ -1,0 +1,16 @@
+app/book
+tests/__pycache__
+app/__pycache__
+app/users/__pycache__
+instance/__pycache__
+app/auth/__pycache__
+app/books/__pycache__
+app/book/__pycache__
+app/book/__pycache__/__init__.cpython-36.pyc
+app/__pycache__/__init__.cpython-36.pyc
+app/auth/__pycache__/__init__.cpython-36.pyc
+app/books/__pycache__/__init__.cpython-36.pyc
+app/users/__pycache__/__init__.cpython-36.pyc
+instance/__pycache__/__init__.cpython-36.pyc
+instance/__pycache__/config.cpython-36.pyc
+tests/__pycache__/__init__.cpython-36.pyc
