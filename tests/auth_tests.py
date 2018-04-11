@@ -20,7 +20,7 @@ class UserAuthTestCase(unittest.TestCase):
         '''This is the user test json data with a predefined email and password'''
         self.user_data = {
             'email': 'user@testmail.com',
-            'password': 'pass123*'
+            'password': 'Pass123*'
 
         }
 
@@ -60,6 +60,7 @@ class UserAuthTestCase(unittest.TestCase):
 
     def test_user_logout(self):
         ''' test if a user can log-out'''
+
         self.test_user_login()
         res = self.client.get('/auth/logout', data =self.user_data)
         self.assertIn(b'you logged out', res.data)
@@ -67,6 +68,7 @@ class UserAuthTestCase(unittest.TestCase):
 
     def test_user_password_reset(self):
         """test app if app can allow user to reset their password """
+
         self.test_user_login()
         res =self.client.post('/auth/password_reset', data = {
             'email': 'user@testmail.com',

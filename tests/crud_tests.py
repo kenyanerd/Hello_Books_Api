@@ -24,6 +24,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
         self.app_context = self.app.app_context()
         self.app_context.push()
         self.client = self.app.test_client()
+
         # book(dict) variable
         self.book_details = {
             'id': 4,
@@ -36,7 +37,7 @@ class HellobooksCRUDTestCase(unittest.TestCase):
 
         }
 
-        #intialize the test client
+
 
 
     def tearDown(self):
